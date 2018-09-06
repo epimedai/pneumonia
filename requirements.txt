@@ -1,0 +1,7 @@
+pydicom
+tqdm
+imgaug
+pandas
+matplotlib
+numpy
+kaggle
