@@ -17,5 +17,3 @@ Then run setup_dataset.py to download the dataset.
 ```
 python setup_dataset.py
 ``` 
-
- 
