@@ -16,8 +16,8 @@ import json
 
 kaggle_info = json.load(open('kaggle.json', 'r'))
 
-os.environ['KAGGLE_USERNAME'] = kaggle_info.username
-os.environ['KAGGLE_KEY'] = kaggle_info.key
+os.environ['KAGGLE_USERNAME'] = kaggle_info['username']
+os.environ['KAGGLE_KEY'] = kaggle_info['key']
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath('./lesson3-data')
