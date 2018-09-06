@@ -51,7 +51,7 @@ def fill_annotation_container(image_dir, annotations, container):
                                                           label='target',
                                                           coordinate_mode='absolute',
                                                           source='HUMAN')))
-        entry = AnnotationEntry(Path(image_file).name,
+        entry = AnnotationEntry(Path(Path(image_file).stem+'.jpg'),
                                 (img_width, img_height),
                                 dataset_name='pneumonia', instances=instances,
                                 dataset_subset='train')
