@@ -1,3 +1,5 @@
 .idea/
 *.xml
 lesson3-data/*
+*.zip
+*.csv
