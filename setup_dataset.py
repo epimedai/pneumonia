@@ -13,9 +13,14 @@ from tqdm import tqdm
 import pandas as pd
 import glob
 import json
+from pathlib import Path
 
-kaggle_info = json.load(open('kaggle.json', 'r'))
+#####################################################
+# Change to path to fit local filestructure
+kaggle_info_path = '/home/martin/.kaggle/kaggle.json'
+#####################################################
 
+kaggle_info = json.load(open(kaggle_info_path, 'r'))
 os.environ['KAGGLE_USERNAME'] = kaggle_info['username']
 os.environ['KAGGLE_KEY'] = kaggle_info['key']
 
