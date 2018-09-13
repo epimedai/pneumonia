@@ -1,0 +1,17 @@
+{
+  "tf_obj_det_dir" : "/home/martinhovin/.local/lib/python3.6/site-packages/tensorflow/models/research/object_detection",
+  "training_dir" : "/home/martinhovin/Documents/GitHub/pneumonia/training_output/ssdlite_09_09/",
+  "model_dir" : "/home/martinhovin/Documents/GitHub/pneumonia/models/ssdlite_mobilenet_v2_coco_2018_05_09",
+  "training_record" : "/home/martinhovin/Documents/GitHub/pneumonia/lesson3-data/training_data.record",
+  "finetuned_model_dir": "/home/martinhovin/Documents/GitHub/pneumonia/models/fine_tuned/ssdlite_09_09",
+
+  "checkpoint":"/home/martinhovin/Documents/GitHub/pneumonia/models/ssdlite_mobilenet_v2_coco_2018_05_09/model.ckpt",
+  "label_map":"/home/martinhovin/Documents/GitHub/pneumonia/lesson3-data/label_map.pbtxt",
+  "pipeline_config":"/home/martinhovin/Documents/GitHub/pneumonia/models/ssdlite_mobilenet_v2_coco_2018_05_09/pipeline.config",
+
+  "batch_size":8,
+  "training_steps":150000,
+  "eval_steps":1,
+  "num_train_examples":25000,
+  "num_eval_examples":1
+}

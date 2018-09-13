@@ -34,28 +34,35 @@ def load_image(image):
     return image
 
 def fill_annotation_container(image_dir, annotations, container):
-    for image_file in tqdm(image_dir):
-        annotation = annotations[image_file][0]
-        image = load_image(image_file)
-        img_width, img_height = image.shape[0], image.shape[1]
-        instances = []
-        if not math.isnan(annotation['x']):
-            xmin = annotation['x']
-            ymin = annotation['y']
-            width = annotation['width']
-            height = annotation['height']
-            instances.append(AnnotationInstance(bbox=BBox(xmin=xmin,
-                                                          ymin=ymin,
-                                                          xmax=xmin + width,
-                                                          ymax=ymin + height,
-                                                          label='target',
-                                                          coordinate_mode='absolute',
-                                                          source='HUMAN')))
-        entry = AnnotationEntry(Path(Path(image_file).stem+'.jpg'),
-                                (img_width, img_height),
-                                dataset_name='pneumonia', instances=instances,
-                                dataset_subset='train')
-        container.add_entry(entry)
+    for image_file in image_dir:
+        try:
+            print(annotations[image_file])
+            annotation = annotations[image_file][0]
+            print(annotation)
+            image = load_image(image_file)
+            img_width, img_height = image.shape[0], image.shape[1]
+            instances = []
+            if not math.isnan(annotation['x']):
+                print(annotation['x'])
+                xmin = annotation['x']
+                ymin = annotation['y']
+                width = annotation['width']
+                height = annotation['height']
+                instances.append(AnnotationInstance(bbox=BBox(xmin=xmin,
+                                                              ymin=ymin,
+                                                              xmax=xmin + width,
+                                                              ymax=ymin + height,
+                                                              label='target',
+                                                              coordinate_mode='absolute',
+                                                              source='HUMAN')))
+            entry = AnnotationEntry(Path(Path(image_file).stem+'.jpg'),
+                                    (img_width, img_height),
+                                    dataset_name='pneumonia', instances=instances,
+                                    dataset_subset='train')
+            container.add_entry(entry)
+            print('\n\n')
+        except AttributeError:
+            print(f'Unable to convert {image_file}')
 
     return container
 
@@ -68,7 +75,7 @@ train_csv_file = root_dir / 'stage_1_train_labels.csv'
 
 # Convert training set
 dsp = DatasetSourceProvider()
-dsp.add_source(str(train_dicom_dir), dataset_name='pneumonia', dataset_subset='train')
+dsp.add_source(str(train_dicom_dir)+'_jpg', dataset_name='pneumonia', dataset_subset='train')
 container = AnnotationContainer(dataset_source_provider=dsp)
 
 images, annotations = parse_dataset(train_dicom_dir, train_csv_file)

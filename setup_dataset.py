@@ -19,7 +19,7 @@ from pathlib import Path
 
 #####################################################
 # Change to path to fit local filestructure
-kaggle_info_path = '/home/martin/.kaggle/kaggle.json'
+kaggle_info_path = '/home/martinhovin/.kaggle/kaggle.json'
 #####################################################
 
 kaggle_info = json.load(open(kaggle_info_path, 'r'))

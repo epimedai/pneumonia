@@ -1,5 +1,7 @@
-.idea/
+.idea/*
 *.xml
 lesson3-data/*
 *.zip
 *.csv
+models/*
+training_output/*

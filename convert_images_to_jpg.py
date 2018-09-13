@@ -19,8 +19,12 @@ train_image_dir = Path(os.getcwd()+'/lesson3-data/stage_1_train_images')
 test_image_dir = Path(os.getcwd()+'/lesson3-data/stage_1_test_images')
 
 for img_dir in tqdm([test_image_dir, train_image_dir]):
+    if img_dir == test_image_dir: continue
     img_files = [str(f) for f in list(img_dir.glob('*.dcm'))]
     to_dir = str(img_dir)+'_jpg'
     for img_file in tqdm(img_files):
-        img = load_image(img_file)
+        try:
+            img = load_image(img_file)
+        except AttributeError:
+            print(f'Unable to convert {img_file}')
         scipy.misc.imsave(f'{to_dir}/{Path(img_file).stem}.jpg', img)
