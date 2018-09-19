@@ -22,3 +22,4 @@ for e in a:
         print(e.image_path)
         e.show()
 
+print('test')
