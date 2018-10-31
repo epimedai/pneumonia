@@ -11,7 +11,7 @@ a.summary()
 
 count = defaultdict(int)
 for e in a:
-    count[len(e.instances)]+=1
+    count[len(e.instances)] += 1
 
 print('# of boxes in each entry:')
 for k, v in count.items():
