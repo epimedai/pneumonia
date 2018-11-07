@@ -67,11 +67,11 @@ def fill_annotation_container(image_dir, annotations, container):
     return container
 
 
-root_dir = Path(os.getcwd()+'/lesson3-data')
-train_dicom_dir = root_dir / 'stage_1_train_images'
-test_dicom_dir = root_dir / 'stage_1_test_images'
-sample_csv_file = root_dir / 'stage_1_sample_submission.csv'
-train_csv_file = root_dir / 'stage_1_train_labels.csv'
+root_dir = Path('')
+train_dicom_dir = root_dir / ''
+test_dicom_dir = root_dir / ''
+sample_csv_file = root_dir / 'test_annotations.csv'
+train_csv_file = root_dir / 'train_annotations.csv'
 
 # Convert training set
 dsp = DatasetSourceProvider()

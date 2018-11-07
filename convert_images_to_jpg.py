@@ -15,8 +15,8 @@ def load_image(image):
         image = np.stack((image,) * 3, -1)
     return image
 
-train_image_dir = Path(os.getcwd()+'/lesson3-data/stage_1_train_images')
-test_image_dir = Path(os.getcwd()+'/lesson3-data/stage_1_test_images')
+train_image_dir = Path(os.getcwd()+'/data/train')
+test_image_dir = Path(os.getcwd()+'/data/test')
 
 for img_dir in tqdm([test_image_dir, train_image_dir]):
     if img_dir == test_image_dir: continue
